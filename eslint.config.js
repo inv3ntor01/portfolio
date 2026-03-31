@@ -107,6 +107,7 @@ export default [
     },
     {
         ignores: [
+            '.infrastructure',
             'vendor',
             'node_modules',
             'public',
