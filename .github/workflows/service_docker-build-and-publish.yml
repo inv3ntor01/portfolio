@@ -97,6 +97,12 @@ jobs:
           run \
           node \
           ${{ env.PACKAGE_MANAGER }} install
+      - name: Generate Laravel Wayfinder files
+        run: |
+          $DOCKER_COMPOSE_CMD \
+          run \
+          php \
+          artisan wayfinder:generate --with-form
       - name: Build node project
         run: |
           $DOCKER_COMPOSE_CMD \
