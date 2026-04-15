@@ -36,24 +36,13 @@ export default function Welcome({
                         <span className="hidden text-lg font-bold sm:inline-block">CHRISTINE SHEEN</span>
                     </div>
                     <nav className="flex items-center gap-4">
-                        {auth.user ? (
+                        {auth.user && (
                             <Button asChild variant="outline" size="sm">
                                 <Link href={dashboard()}>
                                     <LayoutDashboard className="mr-2 h-4 w-4" />
                                     Dashboard
                                 </Link>
                             </Button>
-                        ) : (
-                            <>
-                                <Button asChild variant="ghost" size="sm">
-                                    <Link href={login()}>Log in</Link>
-                                </Button>
-                                {canRegister && (
-                                    <Button asChild size="sm">
-                                        <Link href={register()}>Register</Link>
-                                    </Button>
-                                )}
-                            </>
                         )}
                     </nav>
                 </div>
