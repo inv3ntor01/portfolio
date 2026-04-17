@@ -56,18 +56,32 @@ jobs:
         run: echo "upper_env=${ENVIRONMENT^^}" >> $GITHUB_OUTPUT
         env:
           ENVIRONMENT: ${{ inputs.environment }}
-      - name: Validate and set environment file
+      - name: Validate and set environment file (prod)
+        if: ${{ steps.env-name.outputs.upper_env == 'PROD' }}
         run: |
-          SECRET_NAME="${{ steps.env-name.outputs.upper_env }}_ENV_FILE_BASE64"
+          SECRET_NAME="PROD_ENV_FILE_BASE64"
           if [ -z "$ENV_FILE_BASE64" ]; then
             echo "::error::Required secret '$SECRET_NAME' is not set. Please add this secret to your repository. If you previously used 'ENV_FILE_BASE64', be sure to rename it to '$SECRET_NAME'."
             exit 1
           fi
 
-          echo $ENV_FILE_BASE64 | base64 -d > .env
+          echo "$ENV_FILE_BASE64" | base64 -d > .env
           chmod 600 .env
         env:
-          ENV_FILE_BASE64: ${{ secrets[format('{0}_ENV_FILE_BASE64', steps.env-name.outputs.upper_env)] }}
+          ENV_FILE_BASE64: ${{ secrets.PROD_ENV_FILE_BASE64 }}
+      - name: Validate and set environment file (dev)
+        if: ${{ steps.env-name.outputs.upper_env == 'DEV' }}
+        run: |
+          SECRET_NAME="DEV_ENV_FILE_BASE64"
+          if [ -z "$ENV_FILE_BASE64" ]; then
+            echo "::error::Required secret '$SECRET_NAME' is not set. Please add this secret to your repository. If you previously used 'ENV_FILE_BASE64', be sure to rename it to '$SECRET_NAME'."
+            exit 1
+          fi
+
+          echo "$ENV_FILE_BASE64" | base64 -d > .env
+          chmod 600 .env
+        env:
+          ENV_FILE_BASE64: ${{ secrets.DEV_ENV_FILE_BASE64 }}
       - name: Determine package manager
         id: determine-package-manager
         run: |
