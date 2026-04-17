@@ -1,0 +1,27 @@
+/* 
+   Custom styles for the portfolio pages 
+   Extracted from home_style/home.html and home_style/contact.html
+*/
+
+/* Material Symbols configuration */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Sonic Noir Gradient */
+.sonic-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-container) 100%);
+}
+
+/* Custom font applications if classes are used */
+.font-headline {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.font-body {
+    font-family: 'Inter', sans-serif;
+}
+
+.font-label {
+    font-family: 'Inter', sans-serif;
+}

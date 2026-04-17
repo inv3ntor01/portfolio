@@ -30,7 +30,11 @@ yarn-error.log
 .spin.yml
 .backups
 custom_files
+home_style
+home.md
+instructions.md
 mcp.config.json
 write-ups.md
 .gemini/*
+
 #Helloween costume ideas

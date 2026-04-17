@@ -37,6 +37,7 @@ export default function Home() {
                         <Link href={novels()} className="uppercase tracking-widest text-[0.8rem] font-['Work_Sans'] text-[#1c1c18]/60 hover:text-[#1c1c18] transition-colors">Novels</Link>
                         <Link href={archives()} className="uppercase tracking-widest text-[0.8rem] font-['Work_Sans'] text-[#1c1c18]/60 hover:text-[#1c1c18] transition-colors">Archives</Link>
                         <Link href={about()} className="uppercase tracking-widest text-[0.8rem] font-['Work_Sans'] text-[#1c1c18]/60 hover:text-[#1c1c18] transition-colors">About</Link>
+                        <Link href="/" className="uppercase tracking-widest text-[0.8rem] font-['Work_Sans'] text-[#1c1c18]/60 hover:text-[#1c1c18] transition-colors">Home</Link>
                     </div>
 
                     <div className="flex items-center gap-4">

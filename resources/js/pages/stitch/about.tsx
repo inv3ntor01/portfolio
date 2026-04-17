@@ -4,7 +4,7 @@ import { home as stitchHome, novels, archives, about } from '../../routes/stitch
 
 /**
  * About Page Component
- * 
+ *
  * This component displays information about the curator, Violet Remarkebly.
  * It's adapted from custom_files/aboutCurator.tsx and integrated into the full-page layout.
  */
@@ -22,7 +22,7 @@ export default function About() {
             <nav className="fixed top-0 w-full z-50 bg-[#fcf9f2]/70 backdrop-blur-2xl">
                 <div className="max-w-7xl mx-auto flex justify-between items-center px-8 py-4">
                     <Link href={stitchHome()} className="text-2xl font-semibold no-underline text-[#1c1c18]">Street Wanderland</Link>
-                    
+
                     <div className="hidden md:flex gap-10">
                         <Link href="#" className="uppercase tracking-widest text-[0.8rem] font-['Work_Sans'] text-[#1c1c18]/60 hover:text-[#1c1c18] transition-colors">Essays</Link>
                         <Link href={novels()} className="uppercase tracking-widest text-[0.8rem] font-['Work_Sans'] text-[#1c1c18]/60 hover:text-[#1c1c18] transition-colors">Novels</Link>
@@ -49,10 +49,10 @@ export default function About() {
                             {/* Portrait Column */}
                             <div className="relative">
                                 <div className="aspect-[3/4] rounded-lg overflow-hidden bg-[#e5e2db] shadow-xl relative z-10 group">
-                                    <img 
-                                        alt="Portrait of Violet Remarkebly" 
-                                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out" 
-                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAf-dyN2YSFhArGu2BuZFYyn9amUlo_kpjWPevCt41GN3CXkH_HbKaSssg-CbRF4zCK3zOfrmilg8YUquR0UKIi5c5ecUnM62rRhTQwr3y6jtz4WN_YMdv25EUbSbzh19soj0CqeRCps50GYgWBKtpWS0szqdDaDtNpe-UJXRqgAfa9vaA2ur404ALFcPQ9SaCYOfT08YRiBJCB8njjVblTI5Buk0o3NPNscC4z1kLVX7K4eFUSwi07il1x_giBNnzdzpwjFAoXKCD" 
+                                    <img
+                                        alt="Portrait of Violet Remarkebly"
+                                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 ease-in-out"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAAf-dyN2YSFhArGu2BuZFYyn9amUlo_kpjWPevCt41GN3CXkH_HbKaSssg-CbRF4zCK3zOfrmilg8YUquR0UKIi5c5ecUnM62rRhTQwr3y6jtz4WN_YMdv25EUbSbzh19soj0CqeRCps50GYgWBKtpWS0szqdDaDtNpe-UJXRqgAfa9vaA2ur404ALFcPQ9SaCYOfT08YRiBJCB8njjVblTI5Buk0o3NPNscC4z1kLVX7K4eFUSwi07il1x_giBNnzdzpwjFAoXKCD"
                                     />
                                 </div>
                                 {/* Decorative Frame Element */}
@@ -67,7 +67,7 @@ export default function About() {
                                 <h2 className="text-5xl font-light mb-8 text-[#1c1c18]">
                                     Violet <span className="italic text-[#3e6374]">Remarkebly</span>
                                 </h2>
-                                
+
                                 <div className="space-y-6 text-lg font-light text-[#41484b] leading-relaxed">
                                     <p>
                                         Violet is a chronicler of the unnoticed, a writer and urban historian who finds poetry in the patinated surfaces of the city. With a background in classical literature and a penchant for long, aimless walks, she launched <span className="italic">Street Wanderland</span> as a digital sanctuary for the modern archivist.

@@ -1,383 +1,336 @@
-import { Head, Link, usePage } from '@inertiajs/react';
-import { 
-    Mail, 
-    Phone, 
-    MapPin, 
-    GraduationCap, 
-    Award, 
-    Users, 
-    CheckCircle, 
-    Cpu,
-    LayoutDashboard
-} from 'lucide-react';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
-import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Separator } from '@/components/ui/separator';
-import { dashboard, login, register } from '@/routes';
+import { Head, Link } from '@inertiajs/react';
 
-export default function Welcome({
-    canRegister = true,
-}: {
-    canRegister?: boolean;
-}) {
-    const { auth } = usePage().props;
-
+export default function Welcome() {
     return (
-        <div className="min-h-screen bg-background text-foreground font-sans">
+        <div className="dark min-h-screen bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
             <Head title="Engr. Christine Sheen Ligan Baron-Vergara | Portfolio" />
-            
-            {/* Header / Navigation */}
-            <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-                <div className="container mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
-                    <div className="flex items-center gap-2">
-                        <Badge variant="outline" className="px-2 py-1 font-bold tracking-tight">ENGR</Badge>
-                        <span className="hidden text-lg font-bold sm:inline-block">CHRISTINE SHEEN</span>
-                    </div>
-                    <nav className="flex items-center gap-4">
-                        {auth.user && (
-                            <Button asChild variant="outline" size="sm">
-                                <Link href={dashboard()}>
-                                    <LayoutDashboard className="mr-2 h-4 w-4" />
-                                    Dashboard
-                                </Link>
-                            </Button>
-                        )}
-                    </nav>
-                </div>
-            </header>
 
-            <main className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
-                {/* Hero Section */}
-                <section className="mb-20 flex flex-col items-center text-center lg:flex-row lg:text-left lg:gap-12">
-                    <div className="mb-8 lg:mb-0">
-                        <Avatar className="h-48 w-48 border-4 border-primary/10 shadow-xl">
-                            <AvatarFallback className="text-4xl font-bold bg-primary/5 text-primary">CS</AvatarFallback>
-                        </Avatar>
+            {/* TopNavBar */}
+            <nav className="fixed top-0 w-full z-50 bg-background/60 backdrop-blur-xl">
+                <div className="flex justify-between items-center px-8 py-6 max-w-7xl mx-auto w-full">
+                    <span className="text-2xl font-bold tracking-tighter text-primary">ENGR. CS</span>
+                    <div className="hidden md:flex gap-8 items-center">
+                        <Link
+                            className="font-headline uppercase tracking-widest text-sm text-primary border-b-2 border-primary pb-1 hover:text-primary transition-colors duration-300 scale-95 active:duration-100"
+                            href="/"
+                        >
+                            Home
+                        </Link>
+                        <a
+                            className="font-headline uppercase tracking-widest text-sm text-white/70 hover:text-primary transition-colors duration-300 scale-95 active:duration-100"
+                            href="/stitch"
+                        >
+                            Writeups
+                        </a>
+                        <Link
+                            className="font-headline uppercase tracking-widest text-sm text-white/70 hover:text-primary transition-colors duration-300 scale-95 active:duration-100"
+                            href="/contact"
+                        >
+                            Contact
+                        </Link>
                     </div>
-                    <div className="flex-1 space-y-4">
-                        <div className="space-y-2">
-                            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl lg:text-6xl">
-                                Engr. Christine Sheen Ligan Baron-Vergara
-                            </h1>
-                            <p className="text-xl text-muted-foreground font-medium">
-                                Senior Technical Content Writer & Computer Engineer
-                            </p>
-                        </div>
-                        <div className="flex flex-wrap justify-center lg:justify-start gap-4 text-sm text-muted-foreground">
-                            <div className="flex items-center gap-1.5">
-                                <Mail className="h-4 w-4" />
-                                <a href="mailto:engineerbaron28@gmail.com" className="hover:text-primary transition-colors">engineerbaron28@gmail.com</a>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                                <Phone className="h-4 w-4" />
-                                <span>09204272135</span>
-                            </div>
-                            <div className="flex items-center gap-1.5">
-                                <MapPin className="h-4 w-4" />
-                                <span>Davao City, Philippines</span>
-                            </div>
-                        </div>
-                        <p className="max-w-[800px] text-lg leading-relaxed text-muted-foreground">
-                            I am a skilled Computer Engineer with a passion for simplifying complex concepts into clear and
-                            engaging content. With a strong background in technology and a keen eye for detail, I excel in creating
-                            user-friendly guides, documentation, and blog posts that cater to both technical and non-technical
-                            audiences.
+                    <div className="flex items-center gap-4">
+                        <button className="material-symbols-outlined text-primary hover:scale-110 transition-transform">
+                            dark_mode
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            <main className="pt-24">
+                {/* Hero Section */}
+                <section className="max-w-7xl mx-auto px-8 py-20 lg:py-32 grid lg:grid-cols-12 gap-12 items-center">
+                    <div className="lg:col-span-7">
+                        <p className="text-primary font-headline tracking-[0.3em] uppercase text-sm mb-6">PROFESSIONAL PORTFOLIO</p>
+                        <h1 className="text-5xl lg:text-7xl font-bold font-headline leading-[1.1] mb-8 tracking-tighter text-on-surface">
+                            Engr. Christine Sheen <span className="text-primary">L. Baron-Vergara</span>
+                        </h1>
+                        <p className="text-xl text-on-surface-variant font-light max-w-2xl mb-10 leading-relaxed">
+                            Senior Technical Content Writer & Computer Engineer. Bridging the gap between complex engineering concepts and accessible digital narratives.
                         </p>
-                        <div className="flex gap-4 justify-center lg:justify-start pt-4">
-                            <Button asChild size="lg">
-                                <a href="mailto:engineerbaron28@gmail.com">Contact Me</a>
-                            </Button>
+                        <div className="flex flex-wrap gap-4">
+                            <Link
+                                href="/contact"
+                                className="bg-gradient-to-r from-primary to-primary-container text-on-primary px-10 py-4 rounded-lg font-bold text-sm tracking-widest uppercase hover:opacity-90 transition-all"
+                            >
+                                Contact Me
+                            </Link>
+                            <button
+                                onClick={()=>window.open("https://drive.google.com/file/d/1Vwc1vTizW_bmAb3fBd2BCIDlyw8ZedZF/view?usp=sharing", "_blank")}
+                                className="border border-outline-variant/20 text-on-surface px-10 py-4 rounded-lg font-bold text-sm tracking-widest uppercase hover:bg-surface-container-low transition-all">
+                                View Resume
+                            </button>
+                        </div>
+                    </div>
+                    <div className="lg:col-span-5 relative">
+                        <div className="aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden white hover:grayscale-0 transition-all duration-700">
+                            <img
+                                className="w-full h-full object-cover"
+                                alt="Professional portrait of Engr. Christine Sheen"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1u-wJXqLIrJ5Cjvl05O0EViKVuDb_qZG6Ab5V_TvFlmUl4dRMHQs4QX1-A9qAQSVVJv2njmYH6Pb424z6KqAXqmRgd1k-u-YzaBk14lQZUBbFBZU9My-LBi6z5G_cdycIvOtLLuoQi105yaz0QUV7chMZIdanA_Pkp9qQesJBmLOdw2KQh6d3b6wC3oKYd48_jGZyieW7XTs_A7R2-w64XNYE0v9ejBJPH8xi0OH35T96jVUQhOJ0ETBhuG5XeRWQRbf79iVxXOI"
+                            />
+                        </div>
+                        <div className="absolute -bottom-6 -left-6 bg-primary text-on-primary p-6 rounded-lg hidden md:block">
+                            <p className="text-3xl font-bold font-headline">10+</p>
+                            <p className="text-xs uppercase tracking-tighter opacity-80">Years of Experience</p>
                         </div>
                     </div>
                 </section>
 
-                <div className="grid grid-cols-1 gap-12 lg:grid-cols-3">
-                    {/* Main Content Area */}
-                    <div className="lg:col-span-2 space-y-16">
-                        
-                        {/* About / Objectives */}
-                        <section className="space-y-4">
-                            <h2 className="text-3xl font-bold tracking-tight">About Me</h2>
-                            <Separator />
-                            <div className="space-y-4 text-muted-foreground leading-relaxed">
-                                <p>
-                                    As someone who grew up in both an engineering and business environment, my objectives are always
-                                    set to a high bar of standards. It has always been my pleasure to support businesses and academic
-                                    institutions in uplifting their visions and missions, welcoming success through innovation and
-                                    technology.
+                {/* About & Bento Grid */}
+                <section className="bg-surface-container-low py-24">
+                    <div className="max-w-7xl mx-auto px-8">
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                            {/* About Me */}
+                            <div className="md:col-span-2 bg-surface p-10 rounded-lg">
+                                <h2 className="text-3xl font-bold font-headline mb-8 text-primary">About Me</h2>
+                                <p className="text-on-surface-variant leading-relaxed text-lg">
+                                    With a dual background in Computer Engineering and Technical Writing, I specialize in distilling intricate technological frameworks into compelling, high-authority content. My approach combines technical precision with editorial flair, ensuring that every project is both accurate and engaging.
                                 </p>
-                                <p>
-                                    My ability to adapt my writing style to various platforms and my dedication to staying up to
-                                    date with the latest industry trends make me an asset in delivering informative and well-crafted
-                                    technical content.
-                                </p>
+                                <div className="mt-12 grid grid-cols-2 gap-8 border-t border-outline-variant/10 pt-10">
+                                    <div>
+                                        <h4 className="text-primary font-headline text-sm uppercase tracking-widest mb-2">Location</h4>
+                                        <p className="text-on-surface">Davao City, Philippines</p>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-primary font-headline text-sm uppercase tracking-widest mb-2">Specialization</h4>
+                                        <p className="text-on-surface">ISO/IEC 27001, Document Manager, ISO Auditor, Startup Mentor, Business Analyst</p>
+                                    </div>
+                                </div>
                             </div>
-                        </section>
-
-                        {/* Work Experience */}
-                        <section className="space-y-6">
-                            <h2 className="text-3xl font-bold tracking-tight">Work Experience</h2>
-                            <Separator />
-                            <div className="space-y-8">
-                                <ExperienceItem 
-                                    title="TikTok Live Gaming Streamer"
-                                    company="Self-Managed"
-                                    period="October 2025 – Present"
-                                    description="Creates and manages social media platforms and content."
-                                />
-                                <ExperienceItem 
-                                    title="Senior Technical Content Writer"
-                                    company="X10 Technologies, Inc."
-                                    period="September 2023 – January 2026"
-                                    description="Global Document Custodian, Records Department Head, Policies and Manuals Writer. Handling RFPs (Canada, US, & Philippines), Technical Reports, Document Controls, Formatting, and Branding."
-                                />
-                                <ExperienceItem 
-                                    title="Technical Content Writer"
-                                    company="X10 Technologies, Inc."
-                                    period="July 2020 – September 2023"
-                                    description="Creating and managing technical documentation and content."
-                                />
-                                <ExperienceItem 
-                                    title="Program Head for Computer Engineering"
-                                    company="University of Mindanao Digos College"
-                                    period="January 2022 - January 2023"
-                                    description="Leadership role in the Computer Engineering program."
-                                />
-                                <ExperienceItem 
-                                    title="Full-time Engineering Faculty and Lab Custodian"
-                                    company="University of Mindanao Digos College"
-                                    period="June 2019 – January 2022"
-                                    description="Academic instruction and laboratory management."
-                                />
-                                <ExperienceItem 
-                                    title="Multi-skilled Virtual Assistant"
-                                    company="TaskBullet Philippines"
-                                    period="May 2020 – October 2020"
-                                    description="Providing diverse virtual assistance services."
-                                />
-                                <ExperienceItem 
-                                    title="Administrative Supervisor and Onboarding Trainer"
-                                    company="The Virtual S Web Solutions"
-                                    period="October 2018 – May 2019"
-                                    description="Supervision and training of new team members."
-                                />
-                                <ExperienceItem 
-                                    title="All Rounder Administrative Assistant"
-                                    company="The Virtual S Web Solutions"
-                                    period="August 2018 – October 2018"
-                                    description="Providing administrative support across various functions."
-                                />
-                                <ExperienceItem 
-                                    title="Technical & Marketing Crew"
-                                    company="Callbox Philippines Incorporated"
-                                    period="April 2017 – June 2017"
-                                    description="Supporting technical and marketing operations."
-                                />
-                                <ExperienceItem 
-                                    title="Book Author and Self-Help Writer"
-                                    company="Launchora"
-                                    period="August 2013 – 2022"
-                                    description="Self-help writing and public speaking."
-                                />
+                            {/* Strengths */}
+                            <div className="bg-surface-container-highest p-10 rounded-lg flex flex-col justify-between">
+                                <div>
+                                    <h2 className="text-3xl font-bold font-headline mb-8 text-white">Strengths</h2>
+                                    <ul className="space-y-6">
+                                        <li className="flex items-center gap-4">
+                                            <span className="material-symbols-outlined text-primary">chat</span>
+                                            <span className="text-on-surface font-medium">Precise Verbal Communication</span>
+                                        </li>
+                                        <li className="flex items-center gap-4">
+                                            <span className="material-symbols-outlined text-primary">edit_note</span>
+                                            <span className="text-on-surface font-medium">Proficient Technical Writing</span>
+                                        </li>
+                                        <li className="flex items-center gap-4">
+                                            <span className="material-symbols-outlined text-primary">groups</span>
+                                            <span className="text-on-surface font-medium">Excellent Team Coordination</span>
+                                        </li>
+                                        <li className="flex items-center gap-4">
+                                            <span className="material-symbols-outlined text-primary">bolt</span>
+                                            <span className="text-on-surface font-medium">High Efficiency & Productivity</span>
+                                        </li>
+                                        <li className="flex items-center gap-4">
+                                            <span className="material-symbols-outlined text-primary">build</span>
+                                            <span className="text-on-surface font-medium">Technical Troubleshooting</span>
+                                        </li>
+                                        <li className="flex items-center gap-4">
+                                            <span className="material-symbols-outlined text-primary">leaderboard</span>
+                                            <span className="text-on-surface font-medium">Adaptable Leadership</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div className="mt-8">
+                                    <span className="text-4xl material-symbols-outlined text-white/20">format_quote</span>
+                                </div>
                             </div>
-                        </section>
-
-                        {/* Seminars and Achievements */}
-                        <section className="space-y-6">
-                            <h2 className="text-3xl font-bold tracking-tight">Seminars and Achievements</h2>
-                            <Separator />
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <AchievementCard 
-                                    title="Most Valuable Employee 2023"
-                                    organization="X10 Technologies"
-                                />
-                                <AchievementCard 
-                                    title="Engineering Oratorical Champion"
-                                    organization="University of Mindanao"
-                                />
-                                <AchievementCard 
-                                    title="1st International Convention Awardee"
-                                    organization="ICPEP Muscat, Oman"
-                                />
-                                <AchievementCard 
-                                    title="Top 10 Research Presenter"
-                                    organization="CODEE Research Congress XI"
-                                />
-                                <AchievementCard 
-                                    title="Essay Writing Champion (Runner-up)"
-                                    organization="UM Davao Intramurals"
-                                />
-                                <AchievementCard 
-                                    title="Python Enhancement Speaker"
-                                    organization="University of Mindanao"
-                                />
-                            </div>
-                        </section>
+                        </div>
                     </div>
+                </section>
 
-                    {/* Sidebar Area */}
-                    <div className="space-y-12 lg:sticky lg:top-24 h-fit">
-                        
-                        {/* Technical Skills */}
-                        <section className="space-y-4">
-                            <h3 className="text-xl font-bold flex items-center gap-2">
-                                <Cpu className="h-5 w-5 text-primary" />
-                                Technical Skills
-                            </h3>
-                            <div className="flex flex-wrap gap-2">
-                                <Badge variant="secondary">Networking Protocols</Badge>
-                                <Badge variant="secondary">Device Programming</Badge>
-                                <Badge variant="secondary">Video & Audio Editing</Badge>
-                                <Badge variant="secondary">Multimedia Networks</Badge>
-                                <Badge variant="secondary">ChatGPT</Badge>
-                                <Badge variant="secondary">Google Suites</Badge>
-                                <Badge variant="secondary">Canva</Badge>
-                                <Badge variant="secondary">Office 365</Badge>
-                                <Badge variant="secondary">Social Media Mgmt</Badge>
-                                <Badge variant="secondary">E-commerce</Badge>
-                                <Badge variant="secondary">Zoho</Badge>
-                                <Badge variant="secondary">Asana</Badge>
-                                <Badge variant="secondary">Trello</Badge>
-                                <Badge variant="secondary">Airtable</Badge>
-                                <Badge variant="secondary">Slack</Badge>
+                {/* Work Experience Timeline */}
+                <section className="max-w-7xl mx-auto px-8 py-24">
+                    <h2 className="text-4xl font-bold font-headline mb-16 text-center">Work <span className="text-primary">Experience</span></h2>
+                    <div className="space-y-12 relative before:absolute before:left-0 md:before:left-1/2 before:w-[1px] before:h-full before:bg-outline-variant/30">
+                        {/* Item 1 */}
+                        <div className="relative flex flex-col md:flex-row items-center gap-8 group">
+                            <div className="md:w-1/2 md:text-right pr-8 order-2 md:order-1">
+                                <span className="text-primary font-bold font-headline text-sm tracking-widest mb-2 block">OCTOBER 2025 — PRESENT</span>
+                                <h3 className="text-2xl font-bold text-white mb-2">TikTok Live Gaming Streamer</h3>
+                                <p className="text-on-surface-variant italic mb-4">Self-Managed</p>
+                                <p className="text-on-surface-variant max-w-md ml-auto">Creates and manages social media platforms and content.</p>
                             </div>
-                        </section>
-
-                        {/* Strengths */}
-                        <section className="space-y-4">
-                            <h3 className="text-xl font-bold flex items-center gap-2">
-                                <CheckCircle className="h-5 w-5 text-primary" />
-                                Strengths
-                            </h3>
-                            <ul className="space-y-3 text-sm">
-                                <li className="flex items-start gap-2">
-                                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                                    <span>Precise Verbal Communication</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                                    <span>Proficient Technical Writing</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                                    <span>Excellent Team Coordination</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                                    <span>High Efficiency & Productivity</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                                    <span>Technical Troubleshooting</span>
-                                </li>
-                                <li className="flex items-start gap-2">
-                                    <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
-                                    <span>Adaptable Leadership</span>
-                                </li>
-                            </ul>
-                        </section>
-
-                        {/* Education */}
-                        <section className="space-y-4">
-                            <h3 className="text-xl font-bold flex items-center gap-2">
-                                <GraduationCap className="h-5 w-5 text-primary" />
-                                Education
-                            </h3>
-                            <div className="space-y-1">
-                                <p className="font-semibold text-sm">BS in Computer Engineering</p>
-                                <p className="text-sm text-muted-foreground">University of Mindanao, Davao City</p>
-                                <p className="text-xs text-muted-foreground italic">Graduated April 2019</p>
+                            <div className="absolute left-[-10px] md:left-1/2 md:translate-x-[-50%] w-5 h-5 bg-primary rounded-full z-10 border-4 border-surface shadow-[0_0_15px_rgba(255,20,147,0.4)]"></div>
+                            <div className="md:w-1/2 order-3"></div>
+                        </div>
+                        {/* Item 2 */}
+                        <div className="relative flex flex-col md:flex-row items-center gap-8 group">
+                            <div className="md:w-1/2 order-2 md:order-1"></div>
+                            <div className="absolute left-[-10px] md:left-1/2 md:translate-x-[-50%] w-5 h-5 bg-primary-container rounded-full z-10 border-4 border-surface shadow-[0_0_15px_rgba(255,71,156,0.4)]"></div>
+                            <div className="md:w-1/2 pl-8 order-3">
+                                <span className="text-primary font-bold font-headline text-sm tracking-widest mb-2 block">SEPTEMBER 2023 — JANUARY 2026</span>
+                                <h3 className="text-2xl font-bold text-white mb-2">Senior Technical Content Writer</h3>
+                                <p className="text-on-surface-variant italic mb-4">X10 Technologies, Inc.</p>
+                                <p className="text-on-surface-variant max-w-md">Global Document Custodian, Records Department Head, Policies and Manuals Writer. Handling RFPs (Canada, US, & Philippines), Technical Reports, Document Controls, Formatting, and Branding.</p>
                             </div>
-                        </section>
-
-                        {/* Professional Affiliations */}
-                        <section className="space-y-4">
-                            <h3 className="text-xl font-bold flex items-center gap-2">
-                                <Users className="h-5 w-5 text-primary" />
-                                Affiliations
-                            </h3>
-                            <div className="space-y-4 text-sm">
-                                <div className="space-y-1">
-                                    <p className="font-semibold">ICPEP Region 11</p>
-                                    <p className="text-muted-foreground">Regional Vice President for External Affairs</p>
-                                    <p className="text-xs text-muted-foreground italic">2025 – Present</p>
-                                </div>
-                                <div className="space-y-1">
-                                    <p className="font-semibold">ICPEP National Board</p>
-                                    <p className="text-muted-foreground">Member for Professional Membership</p>
-                                    <p className="text-xs text-muted-foreground italic">2023 – 2024</p>
-                                </div>
-                                <div className="space-y-1">
-                                    <p className="font-semibold">ICPEP Region 11</p>
-                                    <p className="text-muted-foreground">Chapter President</p>
-                                    <p className="text-xs text-muted-foreground italic">2023 – 2024</p>
-                                </div>
-                                <div className="space-y-1">
-                                    <p className="font-semibold">ICPEP Region 11</p>
-                                    <p className="text-muted-foreground">Professional Development Officer</p>
-                                    <p className="text-xs text-muted-foreground italic">2022</p>
-                                </div>
+                        </div>
+                        {/* Item 3 */}
+                        <div className="relative flex flex-col md:flex-row items-center gap-8 group">
+                            <div className="md:w-1/2 md:text-right pr-8 order-2 md:order-1">
+                                <span className="text-primary font-bold font-headline text-sm tracking-widest mb-2 block">JULY 2020 — SEPTEMBER 2023</span>
+                                <h3 className="text-2xl font-bold text-white mb-2">Technical Content Writer</h3>
+                                <p className="text-on-surface-variant italic mb-4">X10 Technologies, Inc.</p>
+                                <p className="text-on-surface-variant max-w-md ml-auto">Creating and managing technical documentation and content.</p>
                             </div>
-                        </section>
-
-                        {/* Certifications */}
-                        <section className="space-y-4">
-                            <h3 className="text-xl font-bold flex items-center gap-2">
-                                <Award className="h-5 w-5 text-primary" />
-                                Certifications
-                            </h3>
-                            <div className="p-4 rounded-lg bg-primary/5 border border-primary/10">
-                                <p className="font-bold text-primary">Certified Computer Engineer</p>
-                                <p className="text-xs text-muted-foreground italic">Awarded: July 01, 2021</p>
+                            <div className="absolute left-[-10px] md:left-1/2 md:translate-x-[-50%] w-5 h-5 bg-primary rounded-full z-10 border-4 border-surface shadow-[0_0_15px_rgba(255,20,147,0.4)]"></div>
+                            <div className="md:w-1/2 order-3"></div>
+                        </div>
+                        {/* Item 4 */}
+                        <div className="relative flex flex-col md:flex-row items-center gap-8 group">
+                            <div className="md:w-1/2 order-2 md:order-1"></div>
+                            <div className="absolute left-[-10px] md:left-1/2 md:translate-x-[-50%] w-5 h-5 bg-primary-container rounded-full z-10 border-4 border-surface shadow-[0_0_15px_rgba(255,71,156,0.4)]"></div>
+                            <div className="md:w-1/2 pl-8 order-3">
+                                <span className="text-primary font-bold font-headline text-sm tracking-widest mb-2 block">JANUARY 2022 — JANUARY 2023</span>
+                                <h3 className="text-2xl font-bold text-white mb-2">Program Head for Computer Engineering</h3>
+                                <p className="text-on-surface-variant italic mb-4">University of Mindanao Digos College</p>
+                                <p className="text-on-surface-variant max-w-md">Leadership role in the Computer Engineering program.</p>
                             </div>
-                        </section>
+                        </div>
+                        {/* Item 5 */}
+                        <div className="relative flex flex-col md:flex-row items-center gap-8 group">
+                            <div className="md:w-1/2 md:text-right pr-8 order-2 md:order-1">
+                                <span className="text-primary font-bold font-headline text-sm tracking-widest mb-2 block">JUNE 2019 — JANUARY 2022</span>
+                                <h3 className="text-2xl font-bold text-white mb-2">Engineering Faculty & Lab Custodian</h3>
+                                <p className="text-on-surface-variant italic mb-4">University of Mindanao Digos College</p>
+                                <p className="text-on-surface-variant max-w-md ml-auto">Academic instruction and laboratory management.</p>
+                            </div>
+                            <div className="absolute left-[-10px] md:left-1/2 md:translate-x-[-50%] w-5 h-5 bg-primary rounded-full z-10 border-4 border-surface shadow-[0_0_15px_rgba(255,20,147,0.4)]"></div>
+                            <div className="md:w-1/2 order-3"></div>
+                        </div>
+                        {/* Item 6 */}
+                        <div className="relative flex flex-col md:flex-row items-center gap-8 group">
+                            <div className="md:w-1/2 order-2 md:order-1"></div>
+                            <div className="absolute left-[-10px] md:left-1/2 md:translate-x-[-50%] w-5 h-5 bg-primary-container rounded-full z-10 border-4 border-surface shadow-[0_0_15px_rgba(255,71,156,0.4)]"></div>
+                            <div className="md:w-1/2 pl-8 order-3">
+                                <span className="text-primary font-bold font-headline text-sm tracking-widest mb-2 block">MAY 2020 — OCTOBER 2020</span>
+                                <h3 className="text-2xl font-bold text-white mb-2">Multi-skilled Virtual Assistant</h3>
+                                <p className="text-on-surface-variant italic mb-4">TaskBullet Philippines</p>
+                                <p className="text-on-surface-variant max-w-md">Providing diverse virtual assistance services.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </section>
+
+                {/* Technical Skills & Affiliations */}
+                <section className="bg-surface-container py-24">
+                    <div className="max-w-7xl mx-auto px-8 grid lg:grid-cols-2 gap-20">
+                        <div>
+                            <h2 className="text-3xl font-bold font-headline mb-10 text-primary">Technical Skills</h2>
+                            <div className="flex flex-wrap gap-3">
+                                {[
+                                    'Networking Protocols', 'Device Programming', 'Video & Audio Editing',
+                                    'Multimedia Networks', 'ChatGPT', 'Google Suites', 'Canva',
+                                    'Office 365', 'Social Media Mgmt', 'WordPress', 'E-commerce',
+                                    'Zoho', 'Asana', 'Trello', 'Airtable', 'Slack'
+                                ].map((skill) => (
+                                    <span key={skill} className="px-6 py-2 bg-surface-container-highest text-secondary font-medium rounded-full text-sm border border-outline-variant/10">
+                                        {skill}
+                                    </span>
+                                ))}
+                            </div>
+                            <h2 className="text-3xl font-bold font-headline mb-10 mt-20 text-white">Affiliations</h2>
+                            <div className="space-y-6">
+                                {[
+                                    { title: 'Regional Vice President for External Affairs', org: 'ICPEP Region 11 (2025 – Present)' },
+                                    { title: 'Member for Professional Membership', org: 'ICPEP National Board (2023 – 2024)' },
+                                    { title: 'Chapter President', org: 'ICPEP Region 11 (2023 – 2024)' },
+                                    { title: 'Professional Development Officer', org: 'ICPEP Region 11 (2022)' }
+                                ].map((aff, i) => (
+                                    <div key={i} className="flex items-start gap-4 p-4 bg-surface-container-low rounded-lg border-l-4 border-primary">
+                                        <span className="material-symbols-outlined text-primary pt-1">verified</span>
+                                        <div>
+                                            <p className="font-bold text-on-surface">{aff.title}</p>
+                                            <p className="text-xs text-on-surface-variant uppercase tracking-widest">{aff.org}</p>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="grid grid-rows-2 gap-8">
+                            {/* Education */}
+                            <div className="bg-surface p-8 rounded-lg border border-outline-variant/10">
+                                <h2 className="text-2xl font-bold font-headline mb-6 text-primary flex items-center gap-3">
+                                    <span className="material-symbols-outlined">school</span> Education
+                                </h2>
+                                <div className="space-y-6">
+                                    <div>
+                                        <p className="font-bold text-on-surface">BS in Computer Engineering</p>
+                                        <p className="text-sm text-on-surface-variant">University of Mindanao</p>
+                                        <p className="text-xs text-primary mt-1">Graduated April 2019</p>
+                                    </div>
+                                    <div className="border-t border-outline-variant/10 pt-4">
+                                        <p className="font-bold text-on-surface">Master of Business Administration</p>
+                                        <p className="text-sm text-on-surface-variant">Ongoing Research</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {/* Certifications */}
+                            <div className="bg-surface p-8 rounded-lg border border-outline-variant/10">
+                                <h2 className="text-2xl font-bold font-headline mb-6 text-primary flex items-center gap-3">
+                                    <span className="material-symbols-outlined">card_membership</span> Certifications
+                                </h2>
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    {[
+                                        'Google Analytics Certified','Certified Computer Engineer', 'Program Advisory Council',
+                                        'Introduction to Kubernetes', 'Development Mangement', 'Laboratory Safety Training Series III',
+                                        'Case Assessment and Initial Industry Matching', 'DICT-DLS002 Navigating Google Workspace',
+                                        'DICT-ICT001 Digital Innovation in Government', 'DICT-DLS005 Designing Presentation Slides',
+                                        'Professional Organization Representative', 'Aruba Data Center Essentials'
+                                    ].map((cert) => (
+                                        <div key={cert} className="p-3 bg-surface-container-low rounded">
+                                            <p className="text-sm font-bold">{cert}</p>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Seminars & Achievements */}
+                <section className="max-w-7xl mx-auto px-8 py-24">
+                    <h2 className="text-4xl font-bold font-headline mb-16">Seminars & <span className="text-primary">Achievements</span></h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {[
+                            { year: '2023', title: 'Most Valuable Employee', org: 'X10 Technologies', link: 'https://drive.google.com/file/d/1wsc4fZiU5ytVxS2zkuxHGZrvQB-NcPuE/view?usp=sharing' },
+                            { year: 'Award', title: 'Engineering Oratorical Champion', org: 'University of Mindanao', link: 'https://drive.google.com/file/d/1wsc4fZiU5ytVxS2zkuxHGZrvQB-NcPuE/view?usp=sharing' },
+                            { year: 'International', title: '1st International Convention Awardee', org: 'ICPEP Muscat, Oman', link: 'https://drive.google.com/file/d/1wsc4fZiU5ytVxS2zkuxHGZrvQB-NcPuE/view?usp=sharing' },
+                            { year: 'Research', title: 'Top 10 Research Presenter', org: 'CODEE Research Congress XI', link: 'https://drive.google.com/file/d/1wsc4fZiU5ytVxS2zkuxHGZrvQB-NcPuE/view?usp=sharing ' },
+                            { year: 'Runner-up', title: 'Essay Writing Champion', org: 'UM Davao Intramurals', link: 'https://drive.google.com/file/d/1wsc4fZiU5ytVxS2zkuxHGZrvQB-NcPuE/view?usp=sharing '},
+                            { year: 'Speaker', title: 'Python Enhancement Speaker', org: 'University of Mindanao', link: 'https://drive.google.com/file/d/1wsc4fZiU5ytVxS2zkuxHGZrvQB-NcPuE/view?usp=sharing '}
+                        ].map((ach, i) => (
+                            <a
+                                    key={i}
+                                    href={ach.link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group bg-surface-container-low p-8 rounded-lg hover:bg-primary transition-all duration-300"
+                            >
+                                <p className="text-primary group-hover:text-on-primary font-bold mb-4">{ach.year}</p>
+                                <h4 className="text-lg font-headline font-bold text-white group-hover:text-on-primary mb-2">{ach.title}</h4>
+                                <p className="text-sm text-on-surface-variant group-hover:text-on-primary/80">{ach.org}</p>
+                            </a>
+                        ))}
+                    </div>
+                </section>
             </main>
 
-            <footer className="mt-24 border-t py-12 bg-muted/30">
-                <div className="container mx-auto px-4 text-center space-y-4 sm:px-6 lg:px-8">
-                    <p className="text-lg font-bold tracking-tighter">ENGR. CHRISTINE SHEEN LIGAN BARON-VERGARA</p>
-                    <div className="flex justify-center gap-6 text-muted-foreground">
-                        <a href="mailto:engineerbaron28@gmail.com" className="hover:text-primary transition-colors">
-                            <Mail className="h-5 w-5" />
-                        </a>
-                        <span className="text-sm">Davao City, Philippines</span>
+            {/* Footer Execution */}
+            <footer className="bg-surface-container-lowest w-full py-12 px-8 mt-20">
+                <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+                    <div className="text-center md:text-left">
+                        <span className="font-headline text-lg text-white block mb-2 uppercase">engr. cs</span>
+                        <p className="font-body text-xs tracking-tight text-white/40">© 2026 Virtual Buddy Solutions</p>
                     </div>
-                    <p className="text-sm text-muted-foreground">
-                        &copy; {new Date().getFullYear()} Professional Portfolio. Built with Laravel, Inertia, and React.
-                    </p>
+                    <div className="flex gap-8">
+                        <a className="text-primary font-body text-xs tracking-tight uppercase hover:text-white transition-opacity opacity-80 hover:opacity-100" href="mailto:engineerbaron28@gmail.com">Gmail</a>
+                        <a className="text-primary font-body text-xs tracking-tight uppercase hover:text-white transition-opacity opacity-80 hover:opacity-100" href="#">Facebook</a>
+                        <a className="text-primary font-body text-xs tracking-tight uppercase hover:text-white transition-opacity opacity-80 hover:opacity-100" href="https://www.linkedin.com/in/engrchristinevergara/">LinkedIn</a>
+                    </div>
+                    <div className="text-right">
+                        <p className="font-body text-xs tracking-tight text-white/20">DESIGNED BY INV3NTOR</p>
+                    </div>
                 </div>
             </footer>
         </div>
-    );
-}
-
-function ExperienceItem({ title, company, period, description }: { title: string, company: string, period: string, description: string }) {
-    return (
-        <div className="relative pl-8 before:absolute before:left-0 before:top-1.5 before:h-full before:w-px before:bg-border last:before:hidden">
-            <div className="absolute left-[-4px] top-1.5 h-2 w-2 rounded-full bg-primary" />
-            <div className="space-y-1.5">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
-                    <h3 className="text-xl font-bold leading-none">{title}</h3>
-                    <Badge variant="outline" className="font-normal">{period}</Badge>
-                </div>
-                <p className="font-medium text-primary/80">{company}</p>
-                <p className="text-muted-foreground leading-relaxed">{description}</p>
-            </div>
-        </div>
-    );
-}
-
-function AchievementCard({ title, organization }: { title: string, organization: string }) {
-    return (
-        <Card className="hover:shadow-md transition-shadow">
-            <CardHeader className="p-4 pb-2">
-                <CardTitle className="text-base font-bold">{title}</CardTitle>
-                <CardDescription className="text-xs">{organization}</CardDescription>
-            </CardHeader>
-        </Card>
     );
 }

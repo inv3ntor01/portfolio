@@ -16,4 +16,7 @@ Route::inertia('stitch/novels', 'stitch/novels')->name('stitch.novels');
 Route::inertia('stitch/archives', 'stitch/archives')->name('stitch.archives');
 Route::inertia('stitch/about', 'stitch/about')->name('stitch.about');
 
+Route::inertia('contact','contact')->name('contact');
+
+
 require __DIR__.'/settings.php';
